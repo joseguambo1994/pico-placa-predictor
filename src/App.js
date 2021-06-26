@@ -17,7 +17,14 @@ function App() {
         >
           Learn React
         </a>
+        <a>
+          License Plate Number
+        </a>
+        <input type="text" name="LicensePlateNumber"/>
+        <input type="text" name="Date"/>
+        <input type="text" name="TimePicker"/>
       </header>
+      
     </div>
   );
 }

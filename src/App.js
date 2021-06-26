@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import LicensePlateNumber from './Component/LicensePlateNumber/LicensePlateNumber';
+import Date from './Component/Date/Date';
+import Time from './Component/Time/Time';
+import { useState } from 'react'
 
 function App() {
+  
+  const [license, setLicense] = useState("Initial String");
   return (
     <div className="App">
       <header className="App-header">
@@ -9,20 +15,12 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a>
-          License Plate Number
-        </a>
-        <input type="text" name="LicensePlateNumber"/>
-        <input type="text" name="Date"/>
-        <input type="text" name="TimePicker"/>
+      <LicensePlateNumber /> 
+      <Date />
+      <Time />
+      <p>
+          {license}
+        </p>
       </header>
       
     </div>

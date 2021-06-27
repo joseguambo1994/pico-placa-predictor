@@ -8,6 +8,8 @@ import { useState } from 'react'
 function App() {
   
   const [license, setLicense] = useState("Initial String");
+  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,10 +17,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-      <LicensePlateNumber /> 
+      <LicensePlateNumber onLicensePlateChange={setLicense}/> 
       <Date />
       <Time />
       <p>
+        This is the parent license: 
           {license}
         </p>
       </header>

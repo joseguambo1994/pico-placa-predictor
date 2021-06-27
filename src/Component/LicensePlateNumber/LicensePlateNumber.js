@@ -11,10 +11,17 @@ const LicensePlateNumber = ({onLicensePlateChange}) => {
         word = word.toUpperCase();
         if(carLettersValidation.test(word)){
             setLicensePlate(word.toUpperCase());
-            onLicensePlateChange(word);
+            onLicensePlateChange({
+                "value":word,
+                "status": "valid"
+            });
         }else{
             setLicensePlate("Invalid");
-        }   
+            onLicensePlateChange({
+                "value":word,
+                "status": "invalid"
+            });
+        } 
         setCount(count + 1);
         
     }

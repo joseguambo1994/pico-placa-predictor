@@ -7,7 +7,10 @@ import { useState } from 'react'
 
 function App() {
   
-  const [license, setLicense] = useState("Initial String");
+  const [license, setLicense] = useState({
+    "value":"AAA000",
+    "status": "invalid"
+  });
   
 
   return (
@@ -22,7 +25,7 @@ function App() {
       <Time />
       <p>
         This is the parent license: 
-          {license}
+          {license.value + license.status}
         </p>
       </header>
       

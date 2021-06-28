@@ -4,34 +4,49 @@ const LicensePlateNumber = ({onLicensePlateChange}) => {
 
     const [licensePlate,setLicensePlate] = useState("AAA-HG3");
     const [count, setCount] = useState(0);
-    const carLettersValidation = new RegExp('^[A-Z]{3}[0-9]{3}$');
+    const carShortValidation = new RegExp('^[A-Z]{3}[0-9]{3}$');
+    const carLongValidation = new RegExp('^[A-Z]{3}[0-9]{4}$');
+    const motoValidation = new RegExp('^[A-Z]{2}[0-9]{3}[A-Z]{1}$');
     
     function handleChange(e){
-        var word = "" + e.target.value;
-        word = word.toUpperCase();
-        if(carLettersValidation.test(word)){
-            setLicensePlate(word.toUpperCase());
+        var licenseString = "" + e.target.value;
+        licenseString = licenseString.toUpperCase();
+        if(carShortValidation.test(licenseString)){
+            setLicensePlate(licenseString.toUpperCase());
             onLicensePlateChange({
-                "value":word,
-                "status": "valid"
+                "value":licenseString,
+                "status": "valid",
+                "type":"Car (short license plate)",
             });
-        }else{
+        }else if(carLongValidation.test(licenseString)){
+            setLicensePlate(licenseString.toUpperCase());
+            onLicensePlateChange({
+                "value":licenseString,
+                "status": "valid",
+                "type":"Car (long license plate)",
+            });
+        }else if (motoValidation.test(licenseString)){
+            setLicensePlate(licenseString.toUpperCase());
+            onLicensePlateChange({
+                "value":licenseString,
+                "status": "valid",
+                "type":"Motorcycle",
+            });
+        }
+        else{
             setLicensePlate("Invalid");
             onLicensePlateChange({
-                "value":word,
-                "status": "invalid"
+                "value":licenseString,
+                "status": "invalid",
+                "type": "invalid",
             });
-        } 
-        setCount(count + 1);
-        
+        }         
     }
 
     return (
     <div>
       <input type="Text" name="LicensePlateNumber" onChange={ handleChange }
-       style={{textTransform: "uppercase"}} maxLength="6"/>
-      <p> The plate number is: {licensePlate}</p>
-      <p> {count}</p>
+       style={{textTransform: "uppercase"}} maxLength="7"/>  
     </div>
   );
 };

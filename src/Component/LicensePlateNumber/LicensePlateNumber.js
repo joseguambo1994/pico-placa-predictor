@@ -3,7 +3,6 @@ import { useState } from 'react';
 const LicensePlateNumber = ({onLicensePlateChange}) => {
 
     const [licensePlate,setLicensePlate] = useState("AAA-HG3");
-    const [count, setCount] = useState(0);
     const carShortValidation = new RegExp('^[A-Z]{3}[0-9]{3}$');
     const carLongValidation = new RegExp('^[A-Z]{3}[0-9]{4}$');
     const motoValidation = new RegExp('^[A-Z]{2}[0-9]{3}[A-Z]{1}$');

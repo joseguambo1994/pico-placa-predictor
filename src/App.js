@@ -102,12 +102,12 @@ useEffect(() => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p style={{fontSize: 12, color: "gray"}}> Current supported license plate formats: cars (AAA-123 or AAA-1234) and motorcycles (AA-123A)
+        </p>
         <LicensePlateNumber onLicensePlateChange={setLicense} />
         <DatePicker
           selected={startDate}
-          onChange={(date) => {
-            return setStartDate(date);
-          }}
+          onChange={(date) => { setStartDate(date) }}
           showTimeSelect
         />
         <p>
